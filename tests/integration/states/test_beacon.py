@@ -8,8 +8,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 import logging
 
 # Import Salt Testing Libs
+import salt.utils.versions
 from tests.support.case import ModuleCase
 from tests.support.mixins import SaltReturnAssertsMixin
+from tests.support.unit import skipIf
 
 log = logging.getLogger(__name__)
 
