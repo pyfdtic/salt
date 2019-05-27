@@ -31,9 +31,10 @@ except ImportError:
     HAS_ASYNCIO = False
 
 
-if HAS_ASYNCIO:
-    # TODO: Is this really needed?
-    AsyncIOMainLoop().install()
+#if HAS_ASYNCIO:
+#    # TODO: Is this really needed?
+#    AsyncIOMainLoop().initialized()
+#    AsyncIOMainLoop().install()
 
 
 USES_ASYNCIO = (
