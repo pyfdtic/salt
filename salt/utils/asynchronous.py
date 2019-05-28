@@ -22,6 +22,7 @@ from salt.ext import six
 import salt.utils.versions
 from salt.ext.six.moves import queue
 from salt.ext.six import reraise
+import salt.utils.zeromq
 
 try:
     import asyncio
@@ -42,6 +43,7 @@ USES_ASYNCIO = (
     salt.utils.versions.LooseVersion(tornado.version) >=
     salt.utils.versions.LooseVersion('5.0')
 )
+salt.utils.zeromq.install_zmq()
 
 log = logging.getLogger(__name__)
 
@@ -195,11 +197,6 @@ class IOLoop(object):
             return self._ioloop.asyncio_loop.is_running()
         else:
             return self._ioloop._running
-
-    def add_handler(self, fd, handler, events):
-        if hasattr(fd, 'FD'):
-            fd = fd.FD
-        self._ioloop.add_handler(fd, handler, events)
 
 
 class SyncWrapper(object):
